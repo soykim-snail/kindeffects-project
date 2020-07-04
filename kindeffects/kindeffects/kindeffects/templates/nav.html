@@ -1,0 +1,65 @@
+{% load static %}
+    <!-- Main Header Start -->
+    <div class="main-header-area">
+      <div class="classy-nav-container breakpoint-off">
+        <!-- Classy Menu -->
+        <nav class="classy-navbar justify-content-between" id="monaNav">
+
+          <!-- Background Curve -->
+          <div class="bg-curve" style="background-image: url({% static '/img/core-img/curve.png' %});"></div>
+
+          <!-- Logo -->
+          <a class="nav-brand" href="index.html"><img src="{% static '/img/core-img/logo.png' %}" alt="" style="width:60px;"></a>
+
+          <!-- Navbar Toggler -->
+          <div class="classy-navbar-toggler">
+            <span class="navbarToggler"><span></span><span></span><span></span></span>
+          </div>
+
+          <!-- Menu -->
+          <div class="classy-menu">
+            <!-- Menu Close Button -->
+            <div class="classycloseIcon">
+              <div class="cross-wrap"><span class="top"></span><span class="bottom"></span></div>
+            </div>
+
+            <!-- Nav Start -->
+            <div class="classynav">
+              <ul id="nav">
+                <li class="current-item"><i class="fas fa-sign-in-alt"></i></li>
+                <li class="current-item"><a href="{% url 'maps:index' %}">Home</a></li>
+                {% comment %} <li><a href="{% url 'maps:about' %}">About Us</a></li> {% endcomment %}
+                <li><a href="{% url 'stores:index' %}">Stores</a></li>
+                {% if user.is_authenticated %} 
+                  <li><a href="#">Mypage</a>
+                    <ul class="dropdown">
+                      <li><a href="{% url 'accounts:update' %}">- MyPage</a></li>
+                      <li><a href="#">- QR생성</a></li>
+                    </ul> 
+                  </li>
+                {% endif %}
+              </ul>
+
+              <!-- Search Icon -->
+              {% comment %} <div class="search-icon" data-toggle="modal" data-target="#searchModal">
+                <i class="icon_search"></i>
+              </div> {% endcomment %}
+              
+              {% if user.is_authenticated %}  
+                <div class="search-icon logout" data-toggle="modal" data-target="#signOutModal">
+                  <i class="fas fa-sign-out-alt"></i>
+                </div>
+              {% else %}
+                <div class="search-icon sign-in" data-toggle="modal" data-target="#signInModal">
+                  <i class="fas fa-sign-in-alt"></i>
+                </div>
+              {% endif %}
+            </div>
+            <!-- Nav End -->
+
+          </div>
+        </nav>
+      </div>
+    </div>
+    
+
